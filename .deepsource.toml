@@ -1,7 +1,48 @@
 version = 1
 
 [[analyzers]]
+name = "python"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[analyzers]]
+name = "go"
+enabled = true
+
+  [analyzers.meta]
+  import_paths = ["github.com/Xaviersingsaas/chrome-app-samples"]
+  dependencies_vendored = true
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+
+[[analyzers]]
 name = "docker"
+enabled = true
+
+  [analyzers.meta]
+  dockerfile_paths = [
+    "FROM ubuntu:latest",
+    "RUN apt-get update",
+    "RUN apt-get upgrade -y",
+    "RUN apt-get install wget -y",
+    "RUN wget -N https://www.meso-star.com/projects/solstice/downloads/Solstice-0.9.0-GNU-CHROM.tar.gz",
+    "RUN tar -xzf Solstice-0.9.0-GNU-CHROM.tar.gz --skip-old-files",
+    "RUN rm Solstice-0.9.0-GNU-CHROM.tar.gz",
+    "ENV PATH=$PATH:/Solstice-0.9.0-GNU-CHROM/bin",
+    "ENV LD_LIBRARY_PATH=Solstice-0.9.0-GNU-CHROM/lib",
+    "ENV MAN_PATH=Solstice-0.9.0-GNU-CHROM/share"
+  ]
+
+[[analyzers]]
+name = "ruby"
+enabled = true
+
+[[analyzers]]
+name = "terraform"
 enabled = true
 
 [[analyzers]]
@@ -14,8 +55,8 @@ enabled = true
     "mocha",
     "mongo",
     "cypress",
-    "jasmine",
     "browser",
+    "jasmine",
     "jest",
     "jquery"
   ]
@@ -28,3 +69,59 @@ enabled = true
     "angular"
   ]
   style_guide = "google"
+  dialect = "typescript"
+
+[[analyzers]]
+name = "sql"
+enabled = true
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
+name = "java"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "13"
+
+[[analyzers]]
+name = "secrets"
+enabled = true
+
+[[transformers]]
+name = "prettier"
+enabled = true
+
+[[transformers]]
+name = "standardjs"
+enabled = true
+
+[[transformers]]
+name = "rubocop"
+enabled = true
+
+[[transformers]]
+name = "black"
+enabled = true
+
+[[transformers]]
+name = "gofmt"
+enabled = true
+
+[[transformers]]
+name = "yapf"
+enabled = true
+
+[[transformers]]
+name = "autopep8"
+enabled = true
+
+[[transformers]]
+name = "isort"
+enabled = true
+
+[[transformers]]
+name = "standardrb"
+enabled = true
